@@ -63,4 +63,4 @@ alias  sysopctl service stop <bluetooth> ='sudo systemctl stop bluetooth '
 
     #Backup System Files:
 
-    alias sysopctl backup </home/sanjay/Downloads>shopt -s expand_aliases
+    alias sysopctl backup ='tar -czf backup.tar.gz'
