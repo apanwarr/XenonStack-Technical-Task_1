@@ -2,177 +2,84 @@
 
 `sysopctl` is a custom command-line tool designed for managing system resources and tasks on Linux systems. This tool provides various functionalities such as managing services, monitoring system processes, and backing up files.
 
-## Features
 
-### **1. Manual Page and Help**
+#!/bin/bash
+shopt -s expand_aliases
+# sysopctl version
+VERSION="v0.1.0"
 
-Provides detailed documentation for `sysopctl`.
 
-**Command:**
-```bash
-./sysopctl --man
-./sysopctl --help
-```
 
-**Description:** Displays usage and examples of the `sysopctl` command.
 
-![Manual Page](Screenshots/1.png)
-![Manual Page](Screenshots/2.png)
+# Display help message
 
+function display_help() {
+    echo "sysopctl - A system management command line tool"
+    echo "Usage: sysopctl [command] [options]"
+    echo
+    echo "Commands:"
+    echo "  service list                     List all active services"
+    echo "  service start <service-name>     Start a specified service"
+    echo "  service stop <service-name>      Stop a specified service"
+    echo "  system load                      Display the current system load"
+    echo "  disk usage                       Display disk usage by partition"
+    echo "  process monitor                  Monitor system processes in real-time"
+    echo "  logs analyze                     Analyze recent critical system logs"
+    echo "  backup <path>                    Backup system files from the specified path"
+    echo
+    echo "Options:"
+    echo "  --help                           Display this help message"
+    echo "  --version                        Display the command version"
+    echo
+    echo "Examples:"
+    echo "  sysopctl service list"
+    echo "  sysopctl system load"
+    echo "  sysopctl backup /etc"
+}
+
+# All running services
+
+
+
+alias sysopctl service list='systemctl list-units  --type=service  --state=running'
+
+# View System Load
+
+   alias sysopctl system load='w'
+###   Part 2 | Level Intermediate
+#        Manage System Services:
+
+alias sysopctl service start <bluetooth> ='sudo systemctl start bluetooth '
+alias  sysopctl service stop <bluetooth> ='sudo systemctl stop bluetooth '
+
+# Disk usages
+  alias sysopctl disk usage='df -h'
+
+  #   Part 3 | Advanced Level
+    #• Monitor System Processes
+
+    alias sysopctl process monitor='top'
+
+
+    # Analyze System Logs:
+
+    alias $ sysopctl logs analyze='journalctl -p crit --since=yesterday'
+
+
+    #Backup System Files:
+
+    alias sysopctl backup </home/sanjay/Downloads>shopt -s expand_aliases
 * * *
 
-### **2\. Version Information**
 
-Shows the version of the `sysopctl` command.
+![1](https://github.com/user-attachments/assets/429f52d3-1dc7-4758-b479-d8a9f68ea13c)
+![2](https://github.com/user-attachments/assets/d2dcf484-621e-4332-9cc3-c046b6ff9d7b)
+![3](https://github.com/user-attachments/assets/3168ca24-e21a-4bc3-acce-89f455933edf)
+![4](https://github.com/user-attachments/assets/665e2b60-c4ce-4161-9bd1-d586640654d4)
+![5](https://github.com/user-attachments/assets/a4af401a-4b6e-474b-bed7-d0cb344152f7)
+![6](https://github.com/user-attachments/assets/3959febc-2a38-4af5-a75a-edf511941d14)
+![7](https://github.com/user-attachments/assets/c37d0993-94d4-4807-8cdc-9add8e62888e)
+![8](https://github.com/user-attachments/assets/5d98c3f7-b08f-48a4-a63c-118b2da4f3ea)
+![9](https://github.com/user-attachments/assets/7e57ecbe-2ebf-4731-8948-da91e92a0206)
 
-**Command:**
 
-```bash
-./sysopctl --version
-```
-
-**Description:** Displays the current version of `sysopctl`.
-
-![Version Information](Screenshots/3.png)
-
-* * *
-
-### **3\. List Running Services**
-
-Lists all active services on the system.
-
-**Command:**
-
-```bash
-./sysopctl service list
-```
-
-**Description:** Displays a list of all active services, similar to `systemctl list-units --type=service`.
-
-![List Running Services](Screenshots/4.png)
-
-* * *
-
-### **4\. View System Load**
-
-Shows the current system load averages.
-
-**Command:**
-
-```bash
-./sysopctl system load
-```
-
-**Description:** Displays the system load averages, akin to the output from the `uptime` command.
-
-![System Load](Screenshots/5.png)
-
-* * *
-
-### **5\. Manage System Services**
-
-#### **Start a Service**
-
-Starts a specified service.
-
-**Command:**
-
-```bash
-./sysopctl service start <service-name>
-```
-
-**Description:** Starts the given service. Replace `<service-name>` with the actual service name.
-
-![Start Service](Screenshots/6.png)
-
-#### **Stop a Service**
-
-Stops a specified service.
-
-**Command:**
-
-```bash
-./sysopctl service stop <service-name>
-```
-
-**Description:** Stops the given service. Replace `<service-name>` with the actual service name.
-
-![Stop Service](Screenshots/6.png)
-
-* * *
-
-### **6\. Check Disk Usage**
-
-Displays disk usage statistics by partition.
-
-**Command:**
-
-```bash
-./sysopctl disk usage
-```
-
-**Description:** Shows disk usage statistics similar to `df -h`.
-
-![Disk Usage](Screenshots/7.png)
-
-* * *
-
-### **7\. Monitor System Processes**
-
-Displays real-time process activity.
-
-**Command:**
-
-```bash
-./sysopctl process monitor
-```
-
-**Description:** Shows real-time process activity, similar to `top` or `htop`.
-
-![Monitor Processes](Screenshots/8.png)
-
-* * *
-
-### **8\. Analyze System Logs**
-
-Summarizes recent critical log entries.
-
-**Command:**
-
-```bash
-./sysopctl logs analyze
-```
-
-**Description:** Analyzes recent critical log entries using `journalctl`.
-
-![Analyze Logs](Screenshots/9.png)
-
-* * *
-
-### **9\. Backup System Files**
-
-Backs up specified files or directories.
-
-**Command:**
-
-```bash
-./sysopctl backup <path>
-```
-
-**Description:** Initiates a backup of the specified path. Replace `<path>` with the path to the files or directories you want to back up.
-
-![Backup Files](Screenshots/10.png)
-
-* * *
-
-Contributing
-------------
-
-If you’d like to contribute to this project, please fork the repository and submit a pull request.
-
-License
--------
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-```
