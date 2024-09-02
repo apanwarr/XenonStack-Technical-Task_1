@@ -1,63 +1,178 @@
-# XenonStack-Technical-Task_1
+# sysopctl
 
+`sysopctl` is a custom command-line tool designed for managing system resources and tasks on Linux systems. This tool provides various functionalities such as managing services, monitoring system processes, and backing up files.
 
-Overview of the problem:  
-Need to create a command designed for managing system resources and tasks. The new 
-command will be called sysopctl and will focus on managing system services, processes, 
-and system health. 
+## Features
 
-General Instructions 
-1. Problem Solving Approach: The approach to solving the problem is at the discretion 
-of the candidate. 
-2. Documentation: Use Draw.io to create workflow diagrams and system architecture 
-visuals. 
-3. Version Control: All code and configuration files should be committed to a private 
-Git repository. 
-4. Confidentiality: The documentation and code must not be shared with anyone 
-outside of the project team, including colleagues. 
-Scenario 
-A customer requires a custom command to enhance their system administration 
-capabilities. Your task is to develop a Bash script that acts as a Linux command to manage 
-system resources effectively. 
-Command Specifications 
-• Command Name: sysopctl 
-• Command Version: v0.1.0 
-Section A: Documentation and Basic Features 
-• Manual Page: 
-o Create a detailed manual page for sysopctl so users can access full 
-documentation using man sysopctl. 
-• Help Option: 
-o Implement a --help option that outlines usage and examples, akin to sysopctl --help. 
-• Version Information: 
-o Users should be able to view the command version with: sysopctl --version. 
-Section B: System Management Operations 
-Part 1 | Level Easy 
-• List Running Services: 
-o Command: $ sysopctl service list 
-o Expected Output: List of all active services, similar to systemctl list-units -
-type=service. 
-• View System Load: 
-o Command: $ sysopctl system load 
-o Expected Output: Current system load averages, akin to the output from the 
-uptime command. 
-Part 2 | Level Intermediate 
-• Manage System Services: 
-o Start a service: $ sysopctl service start <service-name> 
-o Stop a service: $ sysopctl service stop <service-name> 
-o Expected Output: Status updates confirming the start or stop of services, 
-similar to systemctl start/stop. 
-• Check Disk Usage: 
-o Command: $ sysopctl disk usage 
-o Expected Output: Disk usage statistics by partition, similar to df -h. 
-Part 3 | Advanced Level 
-• Monitor System Processes: 
-o Command: $ sysopctl process monitor 
-o Expected Output: Real-time process activity, akin to top or htop. 
-• Analyze System Logs: 
-o Command: $ sysopctl logs analyze 
-o Expected Output: Summary of recent critical log entries, utilizing tools like 
-journalctl. 
-• Backup System Files: 
-o Command: $ sysopctl backup <path> 
-o Expected Output: Confirmation of backup initiation and status, potentially 
-using rsync for file transfers. 
+### **1. Manual Page and Help**
+
+Provides detailed documentation for `sysopctl`.
+
+**Command:**
+```bash
+./sysopctl --man
+./sysopctl --help
+```
+
+**Description:** Displays usage and examples of the `sysopctl` command.
+
+![Manual Page](Screenshots/1.png)
+![Manual Page](Screenshots/2.png)
+
+* * *
+
+### **2\. Version Information**
+
+Shows the version of the `sysopctl` command.
+
+**Command:**
+
+```bash
+./sysopctl --version
+```
+
+**Description:** Displays the current version of `sysopctl`.
+
+![Version Information](Screenshots/3.png)
+
+* * *
+
+### **3\. List Running Services**
+
+Lists all active services on the system.
+
+**Command:**
+
+```bash
+./sysopctl service list
+```
+
+**Description:** Displays a list of all active services, similar to `systemctl list-units --type=service`.
+
+![List Running Services](Screenshots/4.png)
+
+* * *
+
+### **4\. View System Load**
+
+Shows the current system load averages.
+
+**Command:**
+
+```bash
+./sysopctl system load
+```
+
+**Description:** Displays the system load averages, akin to the output from the `uptime` command.
+
+![System Load](Screenshots/5.png)
+
+* * *
+
+### **5\. Manage System Services**
+
+#### **Start a Service**
+
+Starts a specified service.
+
+**Command:**
+
+```bash
+./sysopctl service start <service-name>
+```
+
+**Description:** Starts the given service. Replace `<service-name>` with the actual service name.
+
+![Start Service](Screenshots/6.png)
+
+#### **Stop a Service**
+
+Stops a specified service.
+
+**Command:**
+
+```bash
+./sysopctl service stop <service-name>
+```
+
+**Description:** Stops the given service. Replace `<service-name>` with the actual service name.
+
+![Stop Service](Screenshots/6.png)
+
+* * *
+
+### **6\. Check Disk Usage**
+
+Displays disk usage statistics by partition.
+
+**Command:**
+
+```bash
+./sysopctl disk usage
+```
+
+**Description:** Shows disk usage statistics similar to `df -h`.
+
+![Disk Usage](Screenshots/7.png)
+
+* * *
+
+### **7\. Monitor System Processes**
+
+Displays real-time process activity.
+
+**Command:**
+
+```bash
+./sysopctl process monitor
+```
+
+**Description:** Shows real-time process activity, similar to `top` or `htop`.
+
+![Monitor Processes](Screenshots/8.png)
+
+* * *
+
+### **8\. Analyze System Logs**
+
+Summarizes recent critical log entries.
+
+**Command:**
+
+```bash
+./sysopctl logs analyze
+```
+
+**Description:** Analyzes recent critical log entries using `journalctl`.
+
+![Analyze Logs](Screenshots/9.png)
+
+* * *
+
+### **9\. Backup System Files**
+
+Backs up specified files or directories.
+
+**Command:**
+
+```bash
+./sysopctl backup <path>
+```
+
+**Description:** Initiates a backup of the specified path. Replace `<path>` with the path to the files or directories you want to back up.
+
+![Backup Files](Screenshots/10.png)
+
+* * *
+
+Contributing
+------------
+
+If you’d like to contribute to this project, please fork the repository and submit a pull request.
+
+License
+-------
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+```
